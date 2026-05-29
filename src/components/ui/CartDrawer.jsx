@@ -88,7 +88,7 @@ export default function CartDrawer() {
             </div>
 
             {items.length > 0 && (
-              <div className="px-5 py-5 flex flex-col gap-3" style={{ borderTop: '1px solid color-mix(in srgb, var(--color-brand-accent) 30%, transparent)' }}>
+              <div className="px-5 pt-5 flex flex-col gap-3" style={{ borderTop: '1px solid color-mix(in srgb, var(--color-brand-accent) 30%, transparent)', paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}>
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--color-brand-muted)' }}>Total</span>
                   <span className="font-light" style={{ ...SERIF, fontSize: '1.5rem', color: '#FFFFFF', letterSpacing: '0.02em' }}>

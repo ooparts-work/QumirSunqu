@@ -12,8 +12,30 @@
   --font-family-sans: "Nunito", sans-serif;
 }
 
+*, *::before, *::after {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #FFFFFF;
   color: var(--color-brand-black);
   font-family: "Nunito", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Prevent iOS text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* iOS scroll momentum on overflow containers */
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
 }

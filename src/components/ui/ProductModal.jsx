@@ -37,7 +37,7 @@ export default function ProductModal() {
             exit={{ opacity: 0 }}
             onClick={closeProduct}
             className="fixed inset-0 z-50"
-            style={{ backgroundColor: 'color-mix(in srgb, var(--color-brand-black) 65%, transparent)', backdropFilter: 'blur(6px)' }}
+            style={{ backgroundColor: 'color-mix(in srgb, var(--color-brand-black) 65%, transparent)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}
           />
           <motion.div
             key="modal-panel"

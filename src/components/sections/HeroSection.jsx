@@ -11,7 +11,7 @@ export default function HeroSection() {
   return (
     <section
       className="relative flex flex-col items-center justify-center text-center px-6"
-      style={{ minHeight: '88vh', backgroundColor: '#FFFFFF' }}
+      style={{ minHeight: '88svh', backgroundColor: '#FFFFFF' }}
     >
       <motion.div
         initial={{ opacity: 0, y: 24 }}
