@@ -35,7 +35,14 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* iOS scroll momentum on overflow containers */
 .overflow-y-auto {
   -webkit-overflow-scrolling: touch;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

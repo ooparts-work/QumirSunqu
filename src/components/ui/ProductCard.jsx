@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useCartStore } from '../../store/useCartStore.js';
 import clientData from '../../data/client.json';
@@ -24,6 +25,8 @@ export default function ProductCard({ product }) {
   const cartItem = items.find((i) => i.id === product.id);
   const qty = cartItem?.qty ?? 0;
 
+  const [shareHovered, setShareHovered] = useState(false);
+
   const handleShare = (e) => {
     e.stopPropagation();
     window.open(buildShareUrl(product), '_blank');
@@ -48,11 +51,26 @@ export default function ProductCard({ product }) {
         {product.emoji}
         <button
           onClick={handleShare}
-          title="Compartir"
-          className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center transition-opacity hover:opacity-80"
-          style={{ backgroundColor: '#25D366', color: 'white' }}
+          onMouseEnter={() => setShareHovered(true)}
+          onMouseLeave={() => setShareHovered(false)}
+          onTouchStart={() => setShareHovered(true)}
+          onTouchEnd={() => setTimeout(() => setShareHovered(false), 1500)}
+          className="absolute top-2 right-2 h-6 flex items-center gap-1 overflow-hidden transition-all duration-300"
+          style={{ backgroundColor: '#25D366', color: 'white', paddingLeft: '5px', paddingRight: '5px' }}
         >
           <WaIcon />
+          <span style={{
+            maxWidth: shareHovered ? '150px' : '0px',
+            opacity: shareHovered ? 1 : 0,
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            transition: 'max-width 0.25s ease, opacity 0.2s ease',
+            fontSize: '9px',
+            fontWeight: 800,
+            letterSpacing: '0.03em',
+          }}>
+            Antojar vía Whatsapp
+          </span>
         </button>
       </div>
 

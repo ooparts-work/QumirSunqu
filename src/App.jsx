@@ -9,6 +9,14 @@ import CartDrawer from './components/ui/CartDrawer.jsx';
 import ProductModal from './components/ui/ProductModal.jsx';
 import clientData from './data/client.json';
 
+// ── V2: nuevas secciones del mapeo-web ───────────────────────────────────────
+// Para volver a la versión anterior: comenta las 3 líneas de import y el bloque
+// marcado con "V2" en el <main> de abajo. Nada más cambia.
+import TrustSection from './components/sections/TrustSection.jsx';
+import TestimonialsSection from './components/sections/TestimonialsSection.jsx';
+import CTASection from './components/sections/CTASection.jsx';
+// ─────────────────────────────────────────────────────────────────────────────
+
 const SERIF = { fontFamily: '"Cormorant Garamond", serif' };
 
 export default function App() {
@@ -20,10 +28,21 @@ export default function App() {
       <ProductModal />
       <main>
         <HeroSection />
+
+        {/* ── V2 START ── */}
+        <TrustSection />
+        {/* ── V2 END ── */}
+
         <AboutSection />
         <WorkshopsSection />
         <PopularSection />
         <MenuSection />
+
+        {/* ── V2 START ── */}
+        <TestimonialsSection />
+        <CTASection />
+        {/* ── V2 END ── */}
+
       </main>
       <footer
         className="flex flex-col items-center justify-center gap-2 py-10"
