@@ -61,9 +61,11 @@ export const useCartStore = create(
         return parseInt(topId, 10);
       },
 
-      buildWhatsAppUrl: () => {
+      buildWhatsAppUrl: (distrito = '', deliveryFee = 0) => {
         get().recordOrder();
         const items = get().items;
+        const subtotal = get().getTotal();
+        const total = subtotal + deliveryFee;
         const lines = items.map((i) => `${i.emoji} *${i.name}* × ${i.qty}`);
         const message = [
           `¡Hola, ${clientData.name}! 👋`,
@@ -71,6 +73,11 @@ export const useCartStore = create(
           'Quisiera encargar los siguientes productos:',
           '',
           ...lines,
+          '',
+          `📍 *Distrito:* ${distrito || 'No especificado'}`,
+          ...(deliveryFee > 0 ? [`🚗 *Delivery:* ${currency}${deliveryFee.toFixed(2)}`] : ['🏪 *Recojo en tienda*']),
+          '',
+          `💰 *Total: ${currency}${total.toFixed(2)}*`,
           '',
           '¿Me pueden confirmar disponibilidad y coordinar la entrega? ¡Muchas gracias! 🌿😊',
         ].join('\n');
